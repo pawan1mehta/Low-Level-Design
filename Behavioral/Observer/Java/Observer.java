@@ -1,5 +1,5 @@
 package ObserverCode;
 
 public interface Observer {
-    public void update(WetherData wetherData);
+    public void update(WeatherData weatherData);
 }

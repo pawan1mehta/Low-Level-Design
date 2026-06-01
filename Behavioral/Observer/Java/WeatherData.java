@@ -1,11 +1,11 @@
 package ObserverCode;
 
-public class WetherData {
+public class WeatherData {
     public float temperature;
     public float humidity;
     public float pressure;
 
-    public WetherData(float temperature, float humidity, float pressure) {
+    public WeatherData(float temperature, float humidity, float pressure) {
         this.temperature = temperature;
         this.humidity = humidity;
         this.pressure = pressure;
@@ -37,7 +37,7 @@ public class WetherData {
 
     @Override
     public String toString() {
-        return "WetherData [temperature=" + temperature + ", humidity=" + humidity + ", pressure=" + pressure
+        return "WeatherData [temperature=" + temperature + ", humidity=" + humidity + ", pressure=" + pressure
                 + "]";
     }
 }

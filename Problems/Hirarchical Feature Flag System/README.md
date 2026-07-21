@@ -35,12 +35,12 @@ Followups:
 # Solution
 
 
-Requirements:
+## Requirements
     - The users should be able to create/delete the channel
     - The users should be able to add/update the feature flags
     - The channel can inherit features from other channels
 
-Entities & Relationships:
+## Entities & Relationships
 
     Entities:
      - Channel.Channel
@@ -49,7 +49,7 @@ Entities & Relationships:
     Relationships
         FeatureFlagSystem  <|----- composed of --- Channel.Channel
 
-Class Design:
+## Class Design
 
     FeatureFlagSystem
         - repository: ChannelRepository

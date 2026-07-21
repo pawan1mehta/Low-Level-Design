@@ -1,7 +1,6 @@
-https://enginebogie.com/public/question/design-a-hierarchical-feature-flagging-system/4374
+# Problem Statement
 
-
-======================================== Problem Statement ==============================================================
+Link: https://enginebogie.com/public/question/design-a-hierarchical-feature-flagging-system/4374
 
 You need to build a feature flag system where feature flags are settings like:
 "new_ui" = true/false
@@ -33,7 +32,7 @@ Followups:
     What happens if you update a feature flag value for a channel? How do you ensure that the lookups work at scale?
     If the system is read-heavy (many more lookups than updates), how would you optimise the get_feature performance?
 
-======================================== Solution  ==============================================================
+# Solution
 
 
 Requirements:

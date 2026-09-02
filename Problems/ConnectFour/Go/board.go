@@ -103,5 +103,19 @@ func (b *Board) isValid(row, col int) bool {
 }
 
 func (b *Board) IsFull() bool {
+	count := b.rows * b.cols
+
+	for i := 0; i < b.rows; i++ {
+		for j := 0; j < b.cols; j++ {
+			if b.grid[i][j] != Empty {
+				count--
+			}
+		}
+	}
+
+	if count == 0 {
+		return true
+	}
+	
 	return false
 }

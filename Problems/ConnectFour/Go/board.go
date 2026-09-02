@@ -31,7 +31,7 @@ func (b *Board) canPlace(column int) bool {
 	if column < 0 || column >= b.cols {
 		return false
 	}
-	if b.grid[0][b.cols] != Empty {
+	if b.grid[0][column] != Empty {
 		return false
 	}
 	return true

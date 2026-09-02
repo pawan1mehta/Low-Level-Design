@@ -64,7 +64,7 @@ func (b *Board) CheckWin(row, colum int, color DiscColor) bool {
 		dr := dir[0]
 		dc := dir[1]
 
-		count := 1
+		count := 0
 
 		count += b.coundDirection(row, colum, dr, dc, color)
 		count += b.coundDirection(row, colum, -dr, -dc, color)

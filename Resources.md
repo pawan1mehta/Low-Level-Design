@@ -2,6 +2,7 @@
 
 - <https://www.hellointerview.com/learn/low-level-design/in-a-hurry/delivery>
 - <https://bytebytego.com/guides/top-6-multithreading-design-patterns-you-must-know/>
+- <https://dev.to/jones_charles_ad50858dbc0/mastering-go-concurrency-patterns-pipelines-broadcasting-and-cancellation-1j36>
 - <https://gobyexample.com/worker-pools>
 - <https://go.dev/talks/2012/concurrency.slide#1>
 - <https://refactoring.guru/>

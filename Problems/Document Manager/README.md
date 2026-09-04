@@ -6,11 +6,6 @@ Link: <https://leetcode.com/discuss/post/4589653/phonepe-machine-coding-round-2-
 
 A document manager is an application that can be used to create, share and manage text documents. It provides an interface to easily save and retrieve documents.
 
-- Document to be a page with only text data.
-- History of changes to a document to be maintained.
-- A document can be reverted to a previous version.
-- Only the user who created the document can edit, revert or delete the document. Anyone can view the document.
-
 ## Requirements
 
 - User can create a text document.

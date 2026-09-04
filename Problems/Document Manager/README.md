@@ -13,12 +13,20 @@ A document manager is an application that can be used to create, share and manag
 
 ## Requirements
 
-- User should be able to create a document
-  - Creater is the owner
-- Owner (a users with EDIT) can update the document
-  - Each update should be saved in the history
-- User should be able to share a docuement with other user  as VIEW or EDIT
-- User with access can list versions and restore a previous version
+- User can create a text document.
+  - creater is the owner and has full access
+
+- Owner can share a document with another user as VIEW and EDIT
+  - VIEW: read content & list versions
+  - EDIT: VIEW + update content and restore a previous version
+
+- Anyone with VIEW or EDIT can read the document
+
+- Owner or EDIT can restore version N
+
+- Only the owner can delete the document
+
+- Reject: missing doc/user/version, share by non-owner, no access.
 
 Out of Scope:
 
@@ -30,10 +38,85 @@ Out of Scope:
 
 ## Entities & Relationship
 
-- Document
 - DocumentManager
+- Document
+- Version
 - User
+- AccessLevel
+- VersionManager
 
 Relationships:
 
-DocumentManager <---- composed of--- Document
+```code
+  DocumentManager <---- composed of--- Document
+
+  Document <---- contains --- user & AccessLevel
+  Document <---- contains ---- VersionManager
+
+  VersionManager <---- containts ---- Version
+```
+
+## Design Class
+
+```code
+Class DocumentManager:
+
+  - documentsMap : Map<ID, Document>
+
+  + createDocument(user: User)-> Document
+  + getDocument(id) -> Document
+  + readDocument(id) -> string
+  + updateDocument(id: string, user: User, content: string)
+  + restore(id: string, user: User, version: id)
+  + deleteDocument(id: string, user: User)
+  + shareDocument(id: string, owner: User, user: User, acessLevel: AcessLevel)
+```
+
+```code
+Class Document:
+
+  - id: string
+  - content: string
+  - owner: User
+  - shares: Map<Id, AcessLevel>
+  - versionManbager: VersionHistory
+
+  + update(content: string, user: User)
+  + read(user: User)
+  + restore(user: User, version: int)
+  + share(user: User, userID: string, accessLevel: AcessLevel)
+  + listVersion() -> List<Version>
+  - canView(user: User)
+  - canEdit(user: User)
+```
+
+```code
+Class Version:  
+  - id: int
+  - authorId: string
+  - content: string
+  - createdAt: time
+
+  + getState() -> string
+```
+
+```code
+Class VersionHistory:
+
+  - versions: []Version
+  - current: int
+
+  save(Version)
+  get(id: int) -> Version
+  list() -> List<Version>
+```
+
+```code
+Class User:
+
+  - id: string
+  - name: string
+
+  + getID() -> string
+  + getName() -> string
+```

@@ -32,17 +32,22 @@ Out Of Scope
 ## Entities & Relationships
 
 - BookingSystem
-- Booking
 - Movie
 - Theater
-- User
-- Ticket
+- Scree
 - Seat
+- Show
+- ShowSeating
+- Booking
+- Ticket
+- User
 
 Relationships:
 
 ```text
-    Theator <---- composed of ---- Seat
+    BookingSystem <---- contains --- movies, shows, theators, bookings
+
+    Theator <---- contains ---- screens
 
     BookingSystem <---- contain ---- Movie
 ```
@@ -52,12 +57,15 @@ Relationships:
 ```code
 Class BookingSystem
 
-    - movies: List<Movie>
+    - movies: Map<String, Movie>
     - theators: Map<String, Threator>
+    - shows: Map<String, Show>
     - bookings: Map<String, Booking>
 
-    + search(name: string) -> List<Movie>
-    + book(booking: Booking) Ticket
+    + search(title: string) -> List<Movie>
+    + getShow(id: string) Show
+    + book(user, showID, seatIDs) BookingID
+    + cancel(bookingID: string)
 ```
 
 ```code
@@ -67,23 +75,44 @@ Class Movie
     - title: string
     - description: string
     - startTime: time
-    - theatorID: string
 ```
 
 ```code
-Class Theator:
+Class Threator:
 
     - id: stirng
-    - seats: List<Seat>
+    - name: string
+    - screens: Map<String, Screen>
 
-    + getFreeSeat() -> List<Seat>
-    + reserveSeat(Seat) 
+    + getScreen(id) -> List<Seat>
+```
+
+```code
+Class Show
+
+    - id: string
+    - movieID: string
+    - screen: Screen
+    - startTime: time
+
+    + reserveSeat(seatID: string)
+    + availableSeats() -> List<Seat>
+```
+
+```code
+Class Screen
+
+    - id: string
+    - seats: List<Seats>
+
+    + reserveSeat(seatID: string)
+    + availableSeats() -> List<Seat>
 ```
 
 ```code
 Class Seat:
 
-    - id: string
+    - id: int
     - type: NORMAL, GOLD, PREMIUM
     - price: float
     - state: AVAILABEL | OCCUPIED
@@ -95,8 +124,10 @@ Class Seat:
 Class Booking
 
     - id: string
+    - userID: string
+    - showID: string
     - tickets: List<Ticket>
-    - price: float
+    - total: float
     - state: BOOKED | PENDING | CANCELED
 ```
 
@@ -104,6 +135,7 @@ Class Booking
 Class Ticket:
 
     - id: string
-    - movieID: string
-    - seatID: string
+    - bookingID: string
+    - showID: string
+    - seatID: int
 ```

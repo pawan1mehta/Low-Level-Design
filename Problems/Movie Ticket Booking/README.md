@@ -63,8 +63,9 @@ Class BookingSystem
     - bookings: Map<String, Booking>
 
     + search(title: string) -> List<Movie>
-    + getShow(id: string) Show
-    + book(user, showID, seatIDs) BookingID
+    + getShows(movieID: string) List<Show>
+    + getAvailableSeats(showID: string) List<Seat>
+    + booking(user, showID, seatIDs) string
     + cancel(bookingID: string)
 ```
 
@@ -74,7 +75,6 @@ Class Movie
     - id: string
     - title: string
     - description: string
-    - startTime: time
 ```
 
 ```code
@@ -82,9 +82,9 @@ Class Threator:
 
     - id: stirng
     - name: string
-    - screens: Map<String, Screen>
+    - screens: List<Screen>
 
-    + getScreen(id) -> List<Seat>
+    + getScreen(id) -> Screen
 ```
 
 ```code
@@ -93,10 +93,21 @@ Class Show
     - id: string
     - movieID: string
     - screen: Screen
+    - seating: ShowSeating
     - startTime: time
 
     + reserveSeat(seatID: string)
     + availableSeats() -> List<Seat>
+```
+
+```code
+Class ShowSeating
+
+    - stats: Map<int, SeatState>
+
+    + reserveSeats(ids: List<String>)
+    + vacantSeat(id: int)
+    + available(screen) -> List<Seat>
 ```
 
 ```code
@@ -116,8 +127,6 @@ Class Seat:
     - type: NORMAL, GOLD, PREMIUM
     - price: float
     - state: AVAILABEL | OCCUPIED
-
-    + researSeat(id: string) 
 ```
 
 ```code
@@ -127,7 +136,6 @@ Class Booking
     - userID: string
     - showID: string
     - tickets: List<Ticket>
-    - total: float
     - state: BOOKED | PENDING | CANCELED
 ```
 

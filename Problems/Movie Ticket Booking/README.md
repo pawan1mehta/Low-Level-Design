@@ -126,7 +126,6 @@ Class Seat:
     - id: int
     - type: NORMAL, GOLD, PREMIUM
     - price: float
-    - state: AVAILABEL | OCCUPIED
 ```
 
 ```code

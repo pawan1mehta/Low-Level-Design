@@ -101,7 +101,6 @@ class Folder:
 class File:
 
     - name: string
-    - size: string
     - content: string
 
     + getName() -> string

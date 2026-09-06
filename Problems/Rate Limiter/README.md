@@ -48,7 +48,7 @@ Class RateLimiter:
     - states: Map<Key, RateLimiterAlgorithm>
 
     + registerEndpoints(endpoint string, endpintConfig EndpointConfig)
-    + check(clientID: string, request: Request) -> Result
+    + check(clientID: string, endpoint: string) -> Result
 ```
 
 ```code

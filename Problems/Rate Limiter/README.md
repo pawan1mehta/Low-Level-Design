@@ -83,12 +83,14 @@ Interface Class RateLimiterAlgorithm
 
 ```code
 Class TokenBucketAlgorithm implements RateLimiterAlgorithm
+    - configs
 
     + allow(now: time) -> Result
 ```
 
 ```code
 Class SlidingWindowAlgorithm implements RateLimiterAlgorithm
-
+    - configs
+    
     + allow(now: time) -> Result
 ```

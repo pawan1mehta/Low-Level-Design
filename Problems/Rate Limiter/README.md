@@ -36,7 +36,8 @@ Link: <https://www.hellointerview.com/learn/low-level-design/problem-breakdowns/
 Relationships:
 
 ```code
-
+    RateLimiter <----- composed of --- RateLimiterAlgorithm
+    RateLimiter <----- composed of ---- ConfigurationStore
 ```
 
 ## Class Desing

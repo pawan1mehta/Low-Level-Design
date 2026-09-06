@@ -1,7 +1,5 @@
 # File System
 
-Link: <https://www.hellointerview.com/learn/low-level-design/problem-breakdowns/file-system>
-
 ## Clarifying Questions
 
 - Hierarchy? Single root like Unix system or multiple root like Windows? [And: single root]

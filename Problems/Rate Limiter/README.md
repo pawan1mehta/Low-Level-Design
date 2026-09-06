@@ -1,7 +1,5 @@
 # Rate Limiter
 
-Link: <https://www.hellointerview.com/learn/low-level-design/problem-breakdowns/rate-limiter>
-
 ## Clarifying Questions
 
 - How many algorithms we'll support? [Ans: We'll support multiple algorithms]

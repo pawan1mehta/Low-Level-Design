@@ -1,7 +1,5 @@
 # Document Manager
 
-Link: <https://leetcode.com/discuss/post/4589653/phonepe-machine-coding-round-2-yoe-by-an-67om/>
-
 ## Problem Statement
 
 A document manager is an application that can be used to create, share and manage text documents. It provides an interface to easily save and retrieve documents.

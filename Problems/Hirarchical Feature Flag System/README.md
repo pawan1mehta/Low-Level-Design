@@ -1,7 +1,5 @@
 # Problem Statement
 
-Link: https://enginebogie.com/public/question/design-a-hierarchical-feature-flagging-system/4374
-
 You need to build a feature flag system where feature flags are settings like:
 "new_ui" = true/false
 "beta_mode" = true/false
@@ -32,13 +30,11 @@ Followups:
     What happens if you update a feature flag value for a channel? How do you ensure that the lookups work at scale?
     If the system is read-heavy (many more lookups than updates), how would you optimise the get_feature performance?
 
-# Solution
-
-
 ## Requirements
-    - The users should be able to create/delete the channel
-    - The users should be able to add/update the feature flags
-    - The channel can inherit features from other channels
+
+- The users should be able to create/delete the channel
+- The users should be able to add/update the feature flags
+- The channel can inherit features from other channels
 
 ## Entities & Relationships
 

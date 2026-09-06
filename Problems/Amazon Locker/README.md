@@ -1,7 +1,5 @@
 # Amanzon Locker
 
-Link: <https://www.hellointerview.com/learn/low-level-design/problem-breakdowns/amazon-locker>
-
 ## Clarifying Questions
 
 - Are there different sized compartments? [ans: Yes small, medium, large]

@@ -1,7 +1,5 @@
 # Connector Four
 
-Link: <https://www.hellointerview.com/learn/low-level-design/problem-breakdowns/connect-four>
-
 ## Clarifying Questions
 
 - How do players interact with the game? do they just specify a column number and the disc dropts? [Ans: they just specify the column from 0 to 6]

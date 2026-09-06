@@ -1,7 +1,5 @@
 # Movie Ticket Booking
 
-Link: <https://www.hellointerview.com/learn/low-level-design/problem-breakdowns/bookmyshow>
-
 ## Clarifying Questions
 
 - Seaching is full-text search, fuzzy-matching or just simple title lookup? [Ans: Simple title/text matching]

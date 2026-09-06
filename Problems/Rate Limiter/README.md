@@ -17,17 +17,17 @@ Link: <https://www.hellointerview.com/learn/low-level-design/problem-breakdowns/
 - System receives requests with clientID & endpoint
 - System support Multiple algorithms.
   - Each algorithm will have different configurations
-- Configuration is provided at the satrtup
-  - Algorithm to use
-  - Algorithm specific paramters
+- Each endpoing as configuration specifying:
+  - Algorithm to use (ex: "Token Bucket", "Sliding Window", etc)
+  - Algorithm specific paramters (ex: capacity, refillRatePerSecond for Token...)
 - System enforces rate limits by checking the clientId and endpoint
-- If endpoint has no configuration se the default configuration
+- If endpoint has no configuration set,then use the default configuration
 - Return the structured result
 
 ## Entity
 
 - RateLimiter
-- Algorithm [TokenBucket, SlidingWindow]
+- RateLimiterAlgorithm [TokenBucketAlgorithm, SlidingWindowAlgorithm]
 - ConfigurationStore
 - Configuration
 - Request
@@ -37,7 +37,8 @@ Relationships:
 
 ```code
     RateLimiter <----- composed of --- RateLimiterAlgorithm
-    RateLimiter <----- composed of ---- ConfigurationStore
+    RateLimiter <----- contains ---- ConfigurationStore
+    
 ```
 
 ## Class Desing
@@ -45,39 +46,49 @@ Relationships:
 ```code
 Class RateLimiter:
     - configurationStore: ConfigurationStore
-    - rateLimiterAlgorithm: RateLimiterAlgorithm
+    - rateLimiterAlgorithm: AlgorithmFactory
+    - states: Map<Key, RateLimiterAlgorithm>
 
-    + registerEndpoints(clientId string, endpintConfig EndpointConfig)
-    + request(request: Request) -> Result
+    + registerEndpoints(endpoint string, endpintConfig EndpointConfig)
+    + check(clientID: string, request: Request) -> Result
+```
+
+```code
+Class Key:
+
+    - clientID: string
+    - endpoint: string
 ```
 
 ```code
 Class ConfigurationStore:
+    - defualt: EndpointConfig
+    - endpointConfigs: Map<String, EndpointConfig>
 
-    - clientsConfig: Map<ClientID, Map<String, EndpointConfig>>
-
-    addEndpoint(clientID: string, endpointConfig: EndpointConfig)
-    getEndpointConfig(clientId string, endpoint string) -> EndpointConfig
+    addEndpoint(endpoint: string, endpointConfig: EndpointConfig)
+    getEndpointConfig(endpoint string) -> EndpointConfig
 ```
 
 ```code
-Abstract Class RateLimiterAlgorithm
+Class AlgorithmFactory
 
-    + request(request: Request) -> Result
+    + create(config: EndpointConfig) -> RateLimiterAlgorithm
 ```
 
 ```code
-Class TokenBucket implements RateLimiterAlgorithm
+Interface Class RateLimiterAlgorithm
 
-    - bucketInfo:
-
-    + request(request: Request) -> Result
+    + allow(now: time) -> Result
 ```
 
 ```code
-Class SlidingWindow implements RateLimiterAlgorithm
+Class TokenBucketAlgorithm implements RateLimiterAlgorithm
 
-    - windoInfo:
+    + allow(now: time) -> Result
+```
 
-    + request(request: Request) -> Result
+```code
+Class SlidingWindowAlgorithm implements RateLimiterAlgorithm
+
+    + allow(now: time) -> Result
 ```

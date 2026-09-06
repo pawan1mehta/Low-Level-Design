@@ -22,7 +22,7 @@
 - If endpoint has no configuration set,then use the default configuration
 - Return the structured result
 
-## Entity
+## Entity & Relationships
 
 - RateLimiter
 - RateLimiterAlgorithm [TokenBucketAlgorithm, SlidingWindowAlgorithm]

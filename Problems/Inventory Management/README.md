@@ -45,8 +45,8 @@ Class InventoryManager
 
     - warehouses: Map<string, WareHouse>
 
-    + addStock(warehouseID: string, stocks: []Stock, warehouseID) -> boolean
-    + removeStock(warehouseID: string, stocks: []Stock, warehouseID) -> boolean
+    + addStock(warehouseID: string, stocks: []Stock) -> boolean
+    + removeStock(warehouseID: string, stocks: []Stock) -> boolean
     + checkAvailability(stocks: []Stock) -> string
     + transferStock(sourceWarehouseID: string, targetWarehouseID: string, stocks: []Stock) -> boolean
     + addAlert(alertConfig: AlertCofig)

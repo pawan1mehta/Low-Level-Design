@@ -47,9 +47,9 @@ Class InventoryManager
 
     + addStock(warehouseID: string, stocks: []Stock) -> boolean
     + removeStock(warehouseID: string, stocks: []Stock) -> boolean
-    + checkAvailability(stocks: []Stock) -> string
+    + checkAvailability(stock: Stock) -> string
     + transferStock(sourceWarehouseID: string, targetWarehouseID: string, stocks: []Stock) -> boolean
-    + addAlert(alertConfig: AlertCofig)
+    + addAlert(warehouseID: string, alertConfig: AlertCofig)
 ```
 
 ```code
